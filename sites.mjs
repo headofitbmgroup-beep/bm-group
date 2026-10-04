@@ -7,9 +7,9 @@ export const sites = {
     dir: 'main', domain: 'bmgroupuae.com', title: 'BM Group UAE',
     accent: '#0f3d63', kicker: 'BM Group · United Arab Emirates',
     headline: 'One group. Many ways we build, furnish and shade your world.',
-    sub: 'BM Group brings together specialist businesses across shading, media and furniture, each with its own home.',
+    sub: 'BM Group brings together specialist businesses across shading, media and lab furniture, each with its own home.',
     about: 'PLACEHOLDER: replace with the About text from bmgroupuae.com.',
-    features: [], stats: [['10+', 'Years of experience'], ['4', 'Business verticals'], ['UAE', 'Wide service'], ['100%', 'Commitment']],
+    features: [], stats: [['10+', 'Years of experience'], ['3', 'Business verticals'], ['UAE', 'Wide service'], ['100%', 'Commitment']],
     isMain: true,
   },
   shade: {
@@ -29,19 +29,6 @@ export const sites = {
     about: 'PLACEHOLDER: replace with the Media vertical text from bmgroupuae.com.',
     features: [['Advertising', 'Outdoor and print campaigns.'], ['Digital Marketing', 'Social, search and performance.'], ['Content Production', 'Photo, video and branding.'], ['Brand Strategy', 'Positioning that lasts.']],
     stats: [['360°', 'Campaigns'], ['Digital', 'First'], ['Creative', 'Studio'], ['UAE', 'Reach']],
-  },
-  furniture: {
-    dir: 'furniture', domain: 'bmfurnitureuae.com', title: 'BM Furniture',
-    accent: '#166534', kicker: 'BM Furniture · Online Store',
-    headline: 'Furniture for every room, delivered across the UAE.',
-    sub: 'Shop retail furniture online: living, bedroom, dining and office.',
-    about: 'PLACEHOLDER: replace with the Furniture vertical text from bmgroupuae.com.',
-    features: [], stats: [], shop: true,
-    products: [
-      ['Oslo 3-Seater Sofa', 'Living', 1899], ['Nordic Coffee Table', 'Living', 549], ['Aria Queen Bed', 'Bedroom', 1599],
-      ['Luna Bedside Table', 'Bedroom', 249], ['Maple Dining Set (6)', 'Dining', 2299], ['Cane Dining Chair', 'Dining', 299],
-      ['Ergo Office Chair', 'Office', 649], ['Walnut Work Desk', 'Office', 899],
-    ],
   },
   labfurniture: {
     dir: 'labfurniture', domain: 'bmlabfurnitureuae.com', title: 'BM Lab Furniture',

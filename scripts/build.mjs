@@ -8,13 +8,10 @@ for (const s of Object.values(sites)) {
   copyFileSync('shared/styles.css', `${out}/styles.css`); copyFileSync('shared/main.js', `${out}/main.js`);
   const nav = s.isMain
     ? `<a href="#verticals">Our Businesses</a><a href="#about">About</a><a class="btn" href="#contact">Contact</a>`
-    : `<a href="https://${GROUP.domain}">BM Group</a>${s.shop ? '<a href="#shop">Shop</a>' : '<a href="#services">Services</a>'}<a href="#contact">Contact</a>${s.shop ? '<button class="btn" id="cartbtn">Cart (<span id="count">0</span>)</button>' : ''}`;
+    : `<a href="https://${GROUP.domain}">BM Group</a><a href="#services">Services</a><a class="btn" href="#contact">Contact</a>`;
   const body = s.isMain
     ? `<section id="verticals"><div class="wrap"><h2 class="reveal">Our Businesses</h2><div class="grid">${verticals.map(v => `<a class="card reveal" href="https://${v.domain}"><span class="dom">${v.domain}</span><h3>${esc(v.title)}</h3><p>${esc(v.sub)}</p><span class="go">Visit site →</span></a>`).join('')}</div></div></section>`
-    : s.shop
-      ? `<section id="shop"><div class="wrap"><h2>Shop</h2><div class="chips" id="chips"></div><div class="grid" id="products" data-to="${GROUP.email}" data-products="${esc(JSON.stringify(s.products))}"></div></div></section>
-<aside id="cart"><h2>Your cart</h2><div id="lines"></div><div class="row"><b>Total</b><b id="total"></b></div><p><button class="btn" id="checkout">Place order</button> <button class="btn ghost" data-close="1">Close</button></p><small>Orders are emailed to our team. Online payment is not yet enabled.</small></aside>`
-      : `<section id="services"><div class="wrap"><h2 class="reveal">What we do</h2><div class="grid">${s.features.map(f => `<div class="card reveal"><h3>${esc(f[0])}</h3><p>${esc(f[1])}</p></div>`).join('')}</div></div></section>`;
+    : `<section id="services"><div class="wrap"><h2 class="reveal">What we do</h2><div class="grid">${s.features.map(f => `<div class="card reveal"><h3>${esc(f[0])}</h3><p>${esc(f[1])}</p></div>`).join('')}</div></div></section>`;
   const stats = s.stats.length ? `<section><div class="wrap stats">${s.stats.map(x => `<div class="stat reveal"><b>${esc(x[0])}</b><span>${esc(x[1])}</span></div>`).join('')}</div></section>` : '';
   const html = `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>${esc(s.title)}</title><meta name="description" content="${esc(s.sub)}"><link rel="canonical" href="https://${s.domain}/">
@@ -22,7 +19,7 @@ for (const s of Object.values(sites)) {
 <link rel="stylesheet" href="styles.css"><style>:root{--accent:${s.accent}}</style></head><body>
 <header><div class="wrap"><a class="logo" href="/">${esc(s.title.replace('BM ', ''))} <span>·</span> BM</a><nav>${nav}</nav></div></header>
 <main><section class="hero"><div class="wrap"><div class="kicker">${esc(s.kicker)}</div><h1>${esc(s.headline)}</h1><p class="sub">${esc(s.sub)}</p>
-<div class="cta"><a class="btn" href="#${s.isMain ? 'verticals' : s.shop ? 'shop' : 'contact'}">${s.shop ? 'Shop now' : s.isMain ? 'Explore our businesses' : 'Get a quote'}</a><a class="btn ghost" href="#about">About</a></div></div></section>
+<div class="cta"><a class="btn" href="#${s.isMain ? 'verticals' : 'contact'}">${s.isMain ? 'Explore our businesses' : 'Get a quote'}</a><a class="btn ghost" href="#about">About</a></div></div></section>
 ${stats}${body}
 <section id="about"><div class="wrap"><h2 class="reveal">About</h2><p class="sub reveal">${esc(s.about)}</p></div></section>
 <section id="contact"><div class="wrap"><h2>Contact</h2><form id="contactform" data-to="${GROUP.email}"><input name="name" placeholder="Name" required><input name="email" type="email" placeholder="Email" required><textarea name="message" rows="4" placeholder="Message" required></textarea><button class="btn">Send</button></form>
